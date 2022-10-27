@@ -1,0 +1,156 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.0
+-- Dumped by pg_dump version 15.0
+
+-- Started on 2022-10-26 22:30:47
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 215 (class 1259 OID 16404)
+-- Name: pessoasdb; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pessoasdb (
+    id integer NOT NULL,
+    nome character varying(50) NOT NULL,
+    cpf character varying(14) NOT NULL,
+    rg character varying(12) NOT NULL,
+    data_nasc character varying(10) NOT NULL,
+    sexo public.sex NOT NULL
+);
+
+
+ALTER TABLE public.pessoasdb OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 16403)
+-- Name: pessoasdb_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.pessoasdb_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pessoasdb_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3330 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: pessoasdb_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.pessoasdb_id_seq OWNED BY public.pessoasdb.id;
+
+
+--
+-- TOC entry 3174 (class 2604 OID 16407)
+-- Name: pessoasdb id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pessoasdb ALTER COLUMN id SET DEFAULT nextval('public.pessoasdb_id_seq'::regclass);
+
+
+--
+-- TOC entry 3324 (class 0 OID 16404)
+-- Dependencies: 215
+-- Data for Name: pessoasdb; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pessoasdb (id, nome, cpf, rg, data_nasc, sexo) FROM stdin;
+66	Francisca Julia da Costa	457.696.936-65	47.360.897-2	23/03/1944	Feminino
+67	Noah Felipe Silva	956.531.431-70	40.974.782-8	11/07/1964	Masculino
+68	Alícia Rosângela Melo	066.291.353-18	36.214.141-1	18/02/1978	Feminino
+69	Cristiane Renata Ana das Neves	946.074.401-08	32.301.736-8	10/05/1966	Feminino
+70	Priscila Benedita Vanessa Ferreira	888.282.394-68	44.524.670-4	15/11/1966	Feminino
+71	Bianca Carolina Nunes	484.323.140-13	44.466.563-8	16/03/1948	Feminino
+72	Yuri Vicente Manuel Silveira	250.111.093-56	18.597.361-9	05/09/1974	Masculino
+73	Melissa Alessandra Barros	446.675.916-25	25.598.673-7	13/01/2000	Feminino
+74	Márcia Daniela Lara da Cruz	932.803.826-02	40.653.176-6	04/06/1986	Feminino
+75	Filipe Anderson Rafael Assis	704.869.005-41	39.383.334-3	19/11/1995	Masculino
+76	Luís Vinicius Sebastião Jesus	035.960.588-56	29.915.692-8	23/04/1965	Masculino
+77	Cecília Caroline Nascimento	034.396.672-78	48.673.066-9	04/02/1951	Feminino
+78	Raimunda Sandra Ferreira	757.187.891-85	21.189.806-5	17/11/1974	Feminino
+79	Andreia Isabelly Juliana Melo	736.348.985-85	24.677.018-1	11/10/1963	Feminino
+80	Nicolas Bernardo Moura	061.370.865-26	16.302.343-8	08/06/1989	Masculino
+81	Diego Benjamin Tiago da Luz	991.152.443-42	38.315.100-4	04/06/1990	Masculino
+82	Marlene Emanuelly Yasmin Cavalcanti	781.233.625-52	21.068.742-3	15/10/1961	Feminino
+83	Vanessa Isabela da Luz	872.138.490-85	44.289.193-3	05/09/1982	Feminino
+84	Camila Flávia Vera Mendes	790.524.518-77	40.847.994-2	01/07/1952	Feminino
+85	Luana Lívia Lara Campos	532.901.056-01	14.732.946-2	19/08/1981	Feminino
+86	Josefa Nina Galvão	379.743.833-80	13.878.690-2	27/01/1943	Feminino
+87	Natália Isabelly Silvana da Paz	454.172.867-29	22.986.096-5	17/09/1980	Feminino
+88	Amanda Sebastiana Vieira	703.941.038-90	50.251.196-5	08/06/1960	Feminino
+89	Noah Pedro Alves	074.733.106-58	32.110.015-3	14/08/1992	Masculino
+90	Giovana Camila da Conceição	418.746.840-49	35.520.215-3	25/06/1947	Feminino
+91	Pietro Joaquim Emanuel Gonçalves	003.502.230-25	12.099.068-4	21/04/1999	Masculino
+92	Tereza Kamilly Mariana Porto	050.946.705-90	39.830.941-3	16/06/1959	Feminino
+93	Caroline Emanuelly Lívia Moreira	673.831.546-57	24.561.727-9	09/04/1948	Feminino
+94	Gabriel Ricardo da Paz	829.270.172-98	30.407.114-6	24/03/1980	Masculino
+95	Giovanni Igor Augusto Pires	584.880.490-72	33.874.271-2	24/08/1946	Masculino
+\.
+
+
+--
+-- TOC entry 3331 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: pessoasdb_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.pessoasdb_id_seq', 95, true);
+
+
+--
+-- TOC entry 3176 (class 2606 OID 16411)
+-- Name: pessoasdb pessoasdb_cpf_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pessoasdb
+    ADD CONSTRAINT pessoasdb_cpf_key UNIQUE (cpf);
+
+
+--
+-- TOC entry 3178 (class 2606 OID 16409)
+-- Name: pessoasdb pessoasdb_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pessoasdb
+    ADD CONSTRAINT pessoasdb_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3180 (class 2606 OID 16413)
+-- Name: pessoasdb pessoasdb_rg_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pessoasdb
+    ADD CONSTRAINT pessoasdb_rg_key UNIQUE (rg);
+
+
+-- Completed on 2022-10-26 22:30:54
+
+--
+-- PostgreSQL database dump complete
+--
+
